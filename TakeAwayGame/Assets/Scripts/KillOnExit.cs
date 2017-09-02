@@ -8,6 +8,10 @@ public class KillOnExit : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		levelManager.RespawnPlayer ();
+		if (other.tag == "Player")
+			levelManager.RespawnPlayer ();
+		else
+			Destroy (other.gameObject);
+		
 	}
 }
